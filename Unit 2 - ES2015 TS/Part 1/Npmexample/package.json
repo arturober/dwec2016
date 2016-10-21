@@ -1,0 +1,30 @@
+{
+  "name": "npm-example",
+  "version": "1.0.0",
+  "description": "My first NPM example",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm test && npm run build",
+    "start": "concurrently 'npm run serve' 'npm run build:watch'",
+    "serve": "lite-server",
+    "build": "uglifyjs -mc -o bundle.js js/*.js",
+    "build:watch": "watch 'npm run build' ./js",
+    "pretest": "echo 'We are going to make some tests'",
+    "test": "eslint js/*.js",
+    "posttest": "echo 'Test successful!'",
+    "prehello": "echo 'I'm going to salute you?",
+    "hello": "echo 'Hello world!'",
+    "posthello": "echo 'Goodbye!'"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2",
+    "uglify": "^0.1.5",
+    "watch": "^1.0.1"
+  }
+}

@@ -1,0 +1,1 @@
+Don't forget to execute: *npm i* to install all dependencies 
