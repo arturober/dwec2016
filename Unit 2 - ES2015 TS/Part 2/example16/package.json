@@ -1,0 +1,14 @@
+{
+  "name": "example16",
+  "version": "1.0.0",
+  "description": "",
+  "main": "example16.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
