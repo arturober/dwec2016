@@ -1,0 +1,33 @@
+{
+  "name": "babel-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run babel:watch\" \"npm run serve\"",
+    "serve": "lite-server",
+    "babel": "babel src -d js",
+    "babel:watch": "babel -w src -d js"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ],
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "systemjs": "^0.19.40"
+  }
+}
