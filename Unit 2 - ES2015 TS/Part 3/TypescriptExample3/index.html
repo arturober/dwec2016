@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style></style>
+</head>
+
+<body>
+
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        SystemJS.config({
+            baseURL: 'js',
+            defaultJSExtensions: true
+/*            map: {
+                "es6-promise": "../node_modules/es6-promise/dist/es6-promise.js"
+            }*/
+        });
+        // loads js/main.js (this is our main script)
+        SystemJS.import('index.js');
+    </script>
+</body>
+
+</html>

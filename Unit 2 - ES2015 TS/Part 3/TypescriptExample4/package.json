@@ -1,0 +1,26 @@
+{
+  "name": "typescript-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run serve\" \"npm run tsc:watch\"",
+    "serve": "lite-server",
+    "tsc": "tsc",
+    "tsc:watch": "tsc -w"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/es6-promise": "0.0.32",
+    "@types/jquery": "^2.0.33",
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.6"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "jquery": "^3.1.1",
+    "systemjs": "^0.19.40"
+  }
+}
