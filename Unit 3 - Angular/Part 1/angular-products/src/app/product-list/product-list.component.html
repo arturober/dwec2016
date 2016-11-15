@@ -1,0 +1,47 @@
+<div class="card">
+	<div class="card-header bg-primary text-white">
+		My product's list
+	</div>
+	<div class="card-block">
+		<form class="form">
+			<div class="form-group row">
+				<label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filter:</label>
+				<div class="col-sm-5">
+					<input type="text" [(ngModel)]="filterSearch" class="form-control" name="filterDesc" id="filterDesc" placeholder="Filter...">
+				</div>
+				<label class="col-form-label col-sm-5">
+          Filtered by: {{filterSearch}}
+        </label>
+			</div>
+		</form>
+
+
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							<button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary': !showImage}" (click)="toggleImage()">
+                  {{showImage?'Hide':'Show'}} images
+              </button>
+						</th>
+						<th>{{headers.desc}}</th>
+						<th>{{headers.price}}</th>
+						<th>{{headers.avail}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let product of products">
+						<td>
+							<img [src]="product.imageUrl" *ngIf="showImage" 
+                [title]="product.description | uppercase" alt="">
+						</td>
+						<td>{{product.description}}</td>
+						<td>{{product.price | currency:'EUR':true}}</td>
+						<td>{{product.available | date:'dd/MM/y'}}</td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
