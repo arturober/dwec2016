@@ -2,4 +2,4 @@ This part includes Angular CLI installation and setup, basic components, data-bi
 
 The example application only has those charateristics implemented.
 
-Don't forget tu run npm **install** first!
+Don't forget to run **npm install** first!
