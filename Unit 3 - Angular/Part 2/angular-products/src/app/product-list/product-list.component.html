@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-header bg-primary text-white">
+		My product's list
+	</div>
+	<div class="card-block">
+		<form class="form">
+			<div class="form-group row">
+				<label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filter:</label>
+				<div class="col-sm-5">
+					<input type="text" [(ngModel)]="filterSearch" class="form-control" name="filterDesc" id="filterDesc" placeholder="Filter...">
+				</div>
+				<label class="col-form-label col-sm-5">
+          Filtered by: {{filterSearch}}
+        </label>
+			</div>
+		</form>
+
+		<div *ngIf="products && products.length">
+			<div class="row headers">
+				<div class="col-xs">
+					<button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary': !showImage}" (click)="toggleImage()">
+ 							{{showImage?'Hide':'Show'}} images
+ 						</button>
+				</div>
+				<div class="col-xs">{{headers.description}}</div>
+				<div class="col-xs">{{headers.price}}</div>
+				<div class="col-xs">{{headers.available}}</div>
+				<div class="col-xs">{{headers.rating}}</div>
+			</div>
+			<product-item class="row" *ngFor="let product of products | productFilter:filterSearch"
+				[product]="product" [showImage]="showImage">
+				Loading product...
+			</product-item>
+		</div>
+	</div>
+</div>
