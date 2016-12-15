@@ -1,0 +1,14 @@
+<h1 setColor [color]="color">
+  {{title}}
+</h1>
+
+<select [(ngModel)]="color">
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="red">Red</option>
+</select>
+
+<div *ngFor="let i of [1,2,3]">
+  <div class="cuadrado" *ngFor="let j of [1,2,3]"
+    setColor [color]="color"></div>
+</div>
