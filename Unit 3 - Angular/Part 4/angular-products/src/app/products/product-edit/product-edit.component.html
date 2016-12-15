@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-header bg-success text-white">
+    Edit product
+  </div>
+  <div class="card-block">
+    <form #productForm="ngForm" novalidate>
+      <div class="form-group row" [ngClass]="validClasses(descModel, 'has-success', 'has-danger')">
+        <label class="col-sm-2 col-form-label text-sm-right">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" #descModel="ngModel" [(ngModel)]="product.description" minlength="5"
+            maxlength="60" required [ngClass]="validClasses(descModel, 'form-control-success', 'form-control-danger')">
+        </div>
+        <div class="offset-sm-2 col-sm-10">
+          <div *ngIf="descModel.dirty && descModel.invalid" class="alert alert-danger">
+            Description is required and between 5 and 60 characters
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group row" [ngClass]="validClasses(priceModel, 'has-success', 'has-danger')">
+        <label class="col-sm-2 col-form-label text-sm-right">Price</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" name="price" [(ngModel)]="product.price" min="0" step="0.01" required #priceModel="ngModel"
+            [ngClass]="validClasses(priceModel, 'form-control-success', 'form-control-danger')">
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="validClasses(availModel, 'has-success', 'has-danger')">
+        <label class="col-sm-2 col-form-label text-sm-right">Available</label>
+        <div class="col-sm-10">
+          <input type="datetime-local" class="form-control" name="available" [ngModel]="getDate(availModel)" (ngModelChange)="setProductDate($event)"
+            #availModel="ngModel" required [ngClass]="validClasses(availModel, 'form-control-success', 'form-control-danger')">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label text-sm-right">Image</label>
+        <div class="col-sm-10">
+          <input type="file" #fileImage class="form-control" accept="image/*" (change)="changeImage(fileImage)">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <img class="product-img" [src]="product.imageUrl">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+            Submit
+          </button>
+        </div>
+      </div>
+
+    </form>
+    <div>Dirty: {{productForm.dirty}}</div>
+    <div>Valid: {{productForm.valid}}</div>
+    <div>Value: {{productForm.value | json}}</div>
+
+  </div>
+</div>
