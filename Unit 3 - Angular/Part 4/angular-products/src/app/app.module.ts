@@ -1,3 +1,4 @@
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { MenuModule } from './menu/menu.module';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 import { APP_ROUTES } from './app.routes';

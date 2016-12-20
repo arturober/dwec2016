@@ -1,8 +1,9 @@
-import { NgModel } from '@angular/forms/src/directives';
+import { ProductsService } from '../services/products.service';
+import { NgForm, NgModel } from '@angular/forms/src/directives';
 import { IProduct } from '../interfaces/iproduct';
 import { CanDeactivateComponent } from '../../shared/can-deactivate-guard.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-product-edit',
@@ -11,13 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductEditComponent implements OnInit, CanDeactivateComponent {
   private product: IProduct;
+  @ViewChild('productForm') form: NgForm; // Reference #productForm
 
   constructor(private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private productService: ProductsService) { }
 
   ngOnInit() {
     this.product = this.route.snapshot.data['product'];
-    this.product.available = new Date(this.product.available);
+    this.product.available = this.product.available.toString().substr(0, 10);
   }
 
   goBack() {
@@ -25,11 +27,9 @@ export class ProductEditComponent implements OnInit, CanDeactivateComponent {
   }
 
   canDeactivate() {
-    return confirm("Do you want to leave this page?. Unsaved changes will be lost...");
-  }
+    if (this.form.pristine) return true; // pristine is the opposite of dirty
 
-  setProductDate(date: string) {
-    this.product.available = new Date(date);
+    return confirm("Do you want to leave this page?. Unsaved changes will be lost...");
   }
 
   validClasses(ngModel: NgModel, validClass: string, errorClass: string) {
@@ -37,10 +37,6 @@ export class ProductEditComponent implements OnInit, CanDeactivateComponent {
       [validClass]: ngModel.dirty && ngModel.valid,
       [errorClass]: ngModel.dirty && ngModel.invalid
     };
-  }
-
-  getDate(model: NgModel) {
-    if (model.valid) return this.product.available.toISOString().slice(0, 16);
   }
 
   changeImage(fileInput: HTMLInputElement) {
@@ -52,4 +48,15 @@ export class ProductEditComponent implements OnInit, CanDeactivateComponent {
     });
   }
 
+  submit() {
+    // Other validations, etc... (call return if you want to cancel the submit)
+    this.productService.updateProduct(this.product)
+      .subscribe(
+        ok => {
+          this.form.reset(); // Now the form is not dirty and we can leave
+          this.router.navigate(["/products", this.product.id])
+        },
+        error => console.error(error)
+      );
+  }
 }

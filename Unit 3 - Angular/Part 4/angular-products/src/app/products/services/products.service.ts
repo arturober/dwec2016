@@ -1,13 +1,14 @@
+import { SERVER_URL } from '../../app.constants';
 import { IProduct } from '../interfaces/iproduct';
 import * as console from 'console';
 import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import { Injectable } from '@angular/core';
 
-const PRODUCT_URL = 'http://192.168.65.128/products-angular/products';
+const PRODUCT_URL = SERVER_URL + '/products';
 
 @Injectable()
 export class ProductsService {
@@ -41,6 +42,16 @@ export class ProductsService {
       })
       .catch((response: Response) =>
         Observable.throw("Error changing rating!"));
+  }
+
+  updateProduct(product: IProduct): Observable<boolean> {
+    return this.http.put(PRODUCT_URL + '/' + product.id, product)
+      .map((response: Response) => {
+        let respObj: { ok: boolean, error?: string } = response.json();
+        if (!respObj.ok) throw respObj.error;
+        return respObj.ok;
+      })
+      .catch((response: Response) => Observable.throw(`Error updating product ${product.id}!`));
   }
 
 }
