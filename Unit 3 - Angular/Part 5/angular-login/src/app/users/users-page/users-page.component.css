@@ -1,0 +1,11 @@
+table {
+    margin-top: 15px;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+img.avatar {
+    max-width: 50px;
+}

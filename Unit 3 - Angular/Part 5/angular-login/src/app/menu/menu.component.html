@@ -1,0 +1,8 @@
+<nav class="navbar navbar-full navbar-dark bg-inverse">
+  <a class="navbar-brand" href="#">Angular Products</a>
+  <div class="nav navbar-nav">
+    <a class="nav-item nav-link" [routerLink]="['/users']"
+      [routerLinkActive]="['active']">Welcome</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>

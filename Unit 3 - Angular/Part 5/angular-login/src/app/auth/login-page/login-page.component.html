@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <form #formLogin="ngForm" novalidate (ngSubmit)="login()">
+        <legend>Login page</legend>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" [(ngModel)]="email" 
+                 name="email" id="email" placeholder="Email" required>
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" [(ngModel)]="password" 
+                 name="password" id="password" placeholder="Password" required>
+        </div>
+        <p class="text-danger" id="errorInfo"></p>
+        <button type="button" class="btn btn-default" (click)="goRegister()">Create account</button>
+        <button type="submit" class="btn btn-success" [disabled]="formLogin.invalid">Login</button>
+      </form>
+      <div class="mt-1">
+        <google-login class="pa-1" (loginGoogle)="loginGoogle($event)"></google-login>
+        <facebook-login class="pa-1" (loginFacebook)="loginFacebook($event)"></facebook-login>
+      </div>
+    </div>
+  </div>
+</div>

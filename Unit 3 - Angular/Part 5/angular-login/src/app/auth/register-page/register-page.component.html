@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <form #productForm="ngForm" (ngSubmit)="register()" novalidate>
+        <legend>Register page</legend>
+
+        <div class="form-group row" [ngClass]="validClasses(nameModel, 'has-success', 'has-danger')">
+          <label class="col-xs-3 col-form-label text-xs-right">Name</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" name="name" #nameModel="ngModel" [(ngModel)]="user.name" 
+                  required [ngClass]="validClasses(nameModel, 'form-control-success', 'form-control-danger')">
+          </div>
+          <div class="offset-xs-3 col-xs-9">
+            <div *ngIf="nameModel.dirty && nameModel.invalid" class="alert alert-danger">
+              Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row" [ngClass]="validClasses(emailModel, 'has-success', 'has-danger')">
+          <label class="col-xs-3 col-form-label text-xs-right">Email</label>
+          <div class="col-xs-9">
+            <input type="email" class="form-control" name="email" #emailModel="ngModel" [(ngModel)]="user.email" 
+                  required [ngClass]="validClasses(emailModel, 'form-control-success', 'form-control-danger')">
+          </div>
+          <div class="offset-xs-3 col-xs-9">
+            <div *ngIf="emailModel.dirty && emailModel.invalid" class="alert alert-danger">
+              Email is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row" [ngClass]="validClasses(passwordModel, 'has-success', 'has-danger')">
+          <label class="col-xs-3 col-form-label text-xs-right">Password</label>
+          <div class="col-xs-9">
+            <input type="password" class="form-control" name="password" #passwordModel="ngModel" [(ngModel)]="user.password" 
+                  required [ngClass]="validClasses(passwordModel, 'form-control-success', 'form-control-danger')">
+          </div>
+          <div class="offset-xs-3 col-xs-9">
+            <div *ngIf="passwordModel.dirty && passwordModel.invalid" class="alert alert-danger">
+              Password is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xs-3 col-form-label text-xs-right">Repeat pass</label>
+          <div class="col-xs-9">
+            <input type="password" class="form-control" name="password2" #password2Model="ngModel" [(ngModel)]="password2">
+          </div>
+          <div class="offset-xs-3 col-xs-9">
+            <div *ngIf="password2Model.value != passwordModel.value" class="alert alert-danger">
+              Passwords don't match
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label text-sm-right">Avatar</label>
+          <div class="col-sm-9">
+            <input type="file" #fileImage class="form-control" accept="image/*" (change)="changeImage(fileImage)">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9 offset-sm-3">
+            <img class="user-avatar" [src]="user.avatar">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="offset-sm-3 col-sm-9">
+            <button type="button" class="btn btn-default" (click)="goBack()">
+              Go back
+            </button>
+            <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

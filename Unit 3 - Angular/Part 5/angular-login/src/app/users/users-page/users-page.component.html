@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>avatar</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Id Google</th>
+      <th>Id Facebook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td><img class="avatar" [src]="user.avatar"></td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.idGoogle}}</td>
+      <td>{{user.idFacebook}}</td>
+    </tr>
+  </tbody>
+</table>
