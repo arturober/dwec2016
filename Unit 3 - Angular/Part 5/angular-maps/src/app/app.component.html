@@ -1,0 +1,11 @@
+<h1>
+  {{title}}
+</h1>
+
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <sebm-google-map-marker [latitude]="lat" [longitude]="lng">
+    <sebm-google-map-info-window [disableAutoPan]="true">
+      Hi, this is the content of the <strong>info window</strong>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
