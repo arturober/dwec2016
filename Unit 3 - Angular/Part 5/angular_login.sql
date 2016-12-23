@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 23-12-2016 a las 12:37:19
+-- Tiempo de generación: 23-12-2016 a las 15:00:20
 -- Versión del servidor: 5.6.30-1
 -- Versión de PHP: 7.0.10-1
 
@@ -44,11 +44,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `registrationDate`, `name`, `email`, `password`, `avatar`, `idGoogle`, `idFacebook`) VALUES
-(1, '2016-12-21 13:33:11', 'Mary', 'mary@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'profile.jpg', NULL, NULL),
-(3, '2016-12-21 13:36:43', 'asdf', 'asdf@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'profile.jpg', NULL, NULL),
-(5, '2016-12-21 13:40:09', 'wert', 'wwertryer@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'bdb4fb80ab7a0a092d5263d74d53c50ef1764bc7.jpg', NULL, NULL),
-(6, '2016-12-21 23:50:36', 'Arturo Bernal', 'arturober@gmail.com', NULL, '5e1e69650b3b1cf6f35182efc711bcc6169892516.jpg', '115091300894899273352', NULL),
-(7, '2016-12-21 23:59:22', 'Arturo Bernal', 'arturober@hotmail.com', NULL, '12b40263811aface7090e4feed437450f4ffc9277.jpg', NULL, '10155073877414367'),
 (8, '2016-12-22 00:17:28', 'Prueba', 'prueba@prueba.es', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '34b28371ece0229b189a102bca6ee98a1443b917.jpg', NULL, NULL);
 
 --
