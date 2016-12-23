@@ -11,7 +11,7 @@ Don't forget to configure your web server's url in **src/app/app.constants.ts**.
 ###angular-material/
 Example of integration with **@angular/material** plugin.
 
-##angular-maps/
+###angular-maps/
 Example of integration with **angular2-google-maps** plugin. Go to app.module.ts and configure your GMaps API key:
 
 ```javascript
