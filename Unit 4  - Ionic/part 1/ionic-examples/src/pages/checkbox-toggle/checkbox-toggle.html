@@ -1,0 +1,42 @@
+<!--
+  Generated template for the CheckboxToggle page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>checkbox-toggle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Option 1</ion-label>
+      <ion-checkbox [(ngModel)]="options.opt1" color="primary"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Option 2</ion-label>
+      <ion-checkbox [(ngModel)]="options.opt2" color="secondary"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Option 3</ion-label>
+      <ion-toggle [(ngModel)]="options.opt3" color="danger"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Option 4</ion-label>
+      <ion-toggle [(ngModel)]="options.opt4" color="pink"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+    <div>
+      {{options | json}}
+    </div>
+</ion-content>

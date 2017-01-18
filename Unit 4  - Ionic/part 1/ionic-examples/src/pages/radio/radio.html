@@ -1,0 +1,40 @@
+<!--
+  Generated template for the Radio page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>radio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header color="primary">How are your Ionic skills?</ion-card-header>
+    <ion-list radio-group [(ngModel)]="choice">
+      <ion-item>
+        <ion-label>Good</ion-label>
+        <ion-radio value="good" checked color="secondary"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Average</ion-label>
+        <ion-radio value="average" checked color="primary"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bad</ion-label>
+        <ion-radio value="bad" checked color="danger"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <p>
+    Answer: {{choice}}
+  </p>
+</ion-content>
