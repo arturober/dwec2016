@@ -1,0 +1,1 @@
+export const URL_SERVER = "http://192.168.65.128/ionic-products";

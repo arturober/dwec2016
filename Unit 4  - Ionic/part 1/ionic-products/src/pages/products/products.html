@@ -1,0 +1,32 @@
+<!--
+  Generated template for the Products page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle *ngIf="!mine">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail item-left>
+        <img [src]="product.imageUrl">
+      </ion-thumbnail>
+      <h2>{{product.description}}</h2>
+      <p>{{product.price | currency:'EUR':true }}</p>
+      <button ion-button clear icon-right item-right color="primary"
+        (tap)="goDetail(product)">
+        Detail
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
