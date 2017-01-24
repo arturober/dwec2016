@@ -1,0 +1,42 @@
+<!--
+  Generated template for the Select page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>select</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label>Gaming</ion-label>
+    <ion-select [(ngModel)]="selectedConsole">
+      <ion-option *ngFor="let console of consoles" [value]="console.val">{{console.title}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<p>
+  Selected console: {{selectedConsole}}
+</p>
+<ion-list>
+  <ion-item>
+    <ion-label>Gaming</ion-label>
+    <ion-select [(ngModel)]="selectedConsoles" multiple="true" cancelText="No!" okText="Okay!">
+      <ion-option *ngFor="let console of consoles" [value]="console.val">{{console.title}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<p>
+  Selected consoles: {{selectedConsoles}}
+</p>
+</ion-content>

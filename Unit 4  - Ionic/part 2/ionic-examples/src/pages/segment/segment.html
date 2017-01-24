@@ -1,0 +1,48 @@
+<!--
+  Generated template for the Segment page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>segment</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="light">
+    <ion-segment [(ngModel)]="type">
+      <ion-segment-button value="heroes">
+        Heroes
+      </ion-segment-button>
+      <ion-segment-button value="villains">
+        Villains
+      </ion-segment-button>
+      <ion-segment-button value="weapons">
+        Weapons
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'heroes'">
+      <ion-item *ngFor="let heroe of heroes">
+        {{heroe}}
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'villains'">
+      <ion-item *ngFor="let villain of villains">
+        {{villain}}
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'weapons'">
+      <ion-item *ngFor="let weapon of weapons">
+        {{weapon}}
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
