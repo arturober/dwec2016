@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
       {path: 'register', component: RegisterPageComponent},
       {path: '', redirectTo: 'login'},
       {path: '**', redirectTo: 'login'}
-    ])
+    ]),
+    NgbModule
   ],
   declarations: [GoogleLoginComponent, FacebookLoginComponent, LoginPageComponent, RegisterPageComponent],
   exports: [GoogleLoginComponent, FacebookLoginComponent],

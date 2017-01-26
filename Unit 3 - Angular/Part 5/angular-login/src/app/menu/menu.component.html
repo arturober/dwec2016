@@ -1,8 +1,12 @@
-<nav class="navbar navbar-full navbar-dark bg-inverse">
+<nav class="navbar navbar-inverse bg-inverse">
   <a class="navbar-brand" href="#">Angular Products</a>
-  <div class="nav navbar-nav">
-    <a class="nav-item nav-link" [routerLink]="['/users']"
-      [routerLinkActive]="['active']">Welcome</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
+
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-item nav-link" [routerLink]="['/users']" [routerLinkActive]="['active']">Welcome</a>
+      </li>
+       <li class="nav-item active">
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+       </li>
+  </ul>
 </nav>

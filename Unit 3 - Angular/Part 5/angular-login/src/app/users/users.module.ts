@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,8 @@ import { UserService } from './services/user.service';
     RouterModule.forChild([
       {path: '', component: UsersPageComponent},
       {path: '**', redirectTo: ''}
-    ])
+    ]),
+    NgbModule
   ],
   providers: [UserService],
   declarations: [UsersPageComponent]

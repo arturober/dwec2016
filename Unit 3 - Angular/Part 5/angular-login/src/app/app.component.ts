@@ -1,5 +1,5 @@
 import { AuthService } from './shared/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   isLogged = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private zone: NgZone) {}
 
   ngOnInit() {
     this.authService.logged$.subscribe(
-      (logged: boolean) => this.isLogged = logged
+      (logged: boolean) => this.zone.run(() => this.isLogged = logged)
     );
   }
 }
