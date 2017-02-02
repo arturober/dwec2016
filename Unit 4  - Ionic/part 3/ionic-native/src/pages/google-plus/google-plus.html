@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>google-plus</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="isLogged">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="response.imageUrl">
+      </ion-avatar>
+      <h2>{{response.displayName}}</h2>
+      <p>{{response.email}}</p>
+    </ion-item>
+    <ion-item>
+      {{response.idToken}}
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <ion-col>
+      <button ion-button block color="danger" (click)="login()" [disabled]="isLogged">
+        Login with Google
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block color="danger" outline (click)="logout()" [disabled]="!isLogged">
+        Logout
+      </button>
+    </ion-col>
+  </ion-row>
+  <button ion-button block color="primary" (click)="disconnect()" [disabled]="!isLogged">
+    Disconnect account
+  </button>
+</ion-content>

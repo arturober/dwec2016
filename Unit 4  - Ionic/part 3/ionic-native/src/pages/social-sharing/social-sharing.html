@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>social-sharing</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="Message" [(ngModel)]="message"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div>
+    <button ion-button block color="secondary" icon-left (click)="share()">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+      Share via Whatsapp
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<!--
+  Generated template for the Geolocation page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>geolocation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button block (click)="geolocate()">Geolocate</button>
+  <p>Lat: {{lat}}, Lng: {{lng}}</p>
+  <ion-row>
+    <ion-col>
+      <button ion-button block color="secondary" [disabled]="isSubscribed"  (click)="startGeo()">Start geolocating</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block color="danger" [disabled]="!isSubscribed"  (click)="stopGeo()">Stop geolocating</button>
+    </ion-col>
+  </ion-row>
+  <p>Lat: {{lat2}}, Lng: {{lng2}}</p>
+</ion-content>

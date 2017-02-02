@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>contacts</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button block (click)="pick()">Pick contact</button>
+  <ion-list *ngIf="contact !== null">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="contact.photos?contact.photos[0].value:''">
+      </ion-avatar>
+      <h2>{{contact.name.formatted}}</h2>
+      <p>{{contact.phoneNumbers[0].value}}</p>
+    </ion-item>
+  </ion-list>
+  <p *ngIf="contact !== null">
+    {{contact | json}}
+  </p>
+</ion-content>

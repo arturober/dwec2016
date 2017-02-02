@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>device-motion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <button ion-button block color="secondary" [disabled]="isSubscribed" (click)="startMotion()">Start motion</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block color="danger" [disabled]="!isSubscribed" (click)="stopMotion()">Stop motion</button>
+    </ion-col>
+  </ion-row>
+  <p>X: {{accel?.x}}</p>
+  <p>Y: {{accel?.y}}</p>
+  <p>Z: {{accel?.z}}</p>
+  <p>{{accel | json}}</p>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Maps and navigation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab bottom left>
+   <button ion-fab (click)="navigate()"><ion-icon name="navigate"></ion-icon></button>
+ </ion-fab>
+  <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng">
+      <sebm-google-map-info-window>
+        <strong>{{info}}</strong>
+      </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+  </sebm-google-map>
+</ion-content>
